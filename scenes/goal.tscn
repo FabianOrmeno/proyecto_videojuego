@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dty7b8mquyymy"]
+
+[ext_resource type="Texture2D" uid="uid://cx4xe7jkjjw7" path="res://assets/oak_woods_v1.0/decorations/shop_anim.png" id="1_jbojv"]
+[ext_resource type="Script" uid="uid://ckf5obq21cgbr" path="res://scenes/goal.gd" id="1_sx1j4"]
+[ext_resource type="AudioStream" uid="uid://clj5wtpp7c5uo" path="res://bgm/floraphonic-marimba-win-b-3-209679.mp3" id="2_w3gav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbojv"]
+size = Vector2(178, 20)
+
+[sub_resource type="Animation" id="Animation_jbojv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sx1j4"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3gav"]
+_data = {
+&"RESET": SubResource("Animation_jbojv"),
+&"idle": SubResource("Animation_sx1j4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jbojv"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sx1j4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w3gav"]
+states/idle/node = SubResource("AnimationNodeAnimation_jbojv")
+states/idle/position = Vector2(325.2, 108.8)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_sx1j4")]
+
+[node name="goal" type="Area2D" unique_id=2037955983]
+script = ExtResource("1_sx1j4")
+victory_sound = ExtResource("2_w3gav")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=783323632]
+scale = Vector2(2, 2)
+texture = ExtResource("1_jbojv")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=888898119]
+position = Vector2(1, 118)
+shape = SubResource("RectangleShape2D_jbojv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1933716122]
+libraries/ = SubResource("AnimationLibrary_w3gav")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=764818748]
+tree_root = SubResource("AnimationNodeStateMachine_w3gav")
+anim_player = NodePath("../AnimationPlayer")

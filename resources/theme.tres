@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://e4c4hq3jlrqt"]
+
+[resource]
+Button/font_sizes/font_size = 30
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
+Title/base_type = &"Label"
+Title/font_sizes/font_size = 60

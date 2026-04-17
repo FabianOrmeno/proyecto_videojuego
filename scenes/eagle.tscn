@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://dvo1f8fyndb6g"]
+
+[ext_resource type="Script" uid="uid://cqhk881ccpdlr" path="res://scenes/eagle.gd" id="1_7wwoj"]
+[ext_resource type="Texture2D" uid="uid://te4exe17r2ey" path="res://assets/eagle/eagle-attack.png" id="1_g2fde"]
+[ext_resource type="Script" uid="uid://sw7nb52bnjce" path="res://components/hitbox_component.gd" id="2_7wwoj"]
+[ext_resource type="Script" uid="uid://ci15w4obnjaks" path="res://components/hurtbox_component.gd" id="3_6ohb7"]
+[ext_resource type="Texture2D" uid="uid://bibpvex25erd8" path="res://assets/eagle/eagle-hurt.png" id="5_6ohb7"]
+[ext_resource type="AudioStream" uid="uid://cnnkig4jpamr5" path="res://bgm/dragon-studio-eagle-sound-382725.mp3" id="6_32mqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2fde"]
+size = Vector2(29, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wwoj"]
+size = Vector2(22, 10)
+
+[sub_resource type="Animation" id="Animation_g2fde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_g2fde")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_32mqa"]
+resource_name = "death"
+length = 1.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6ohb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxComponent")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HurtboxComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7wwoj"]
+resource_name = "flying"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_g2fde")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ohb7"]
+_data = {
+&"RESET": SubResource("Animation_g2fde"),
+&"death": SubResource("Animation_32mqa"),
+&"flying": SubResource("Animation_7wwoj")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ohb7"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_32mqa"]
+animation = &"flying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_av1ye"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xgv6x"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ohb7"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sty0s"]
+states/death/node = SubResource("AnimationNodeAnimation_6ohb7")
+states/death/position = Vector2(495.59998, 100.352)
+states/flying/node = SubResource("AnimationNodeAnimation_32mqa")
+states/flying/position = Vector2(348.4, 99.2)
+transitions = ["Start", "flying", SubResource("AnimationNodeStateMachineTransition_av1ye"), "flying", "death", SubResource("AnimationNodeStateMachineTransition_xgv6x"), "death", "flying", SubResource("AnimationNodeStateMachineTransition_6ohb7")]
+
+[node name="eagle" type="StaticBody2D" unique_id=796266976]
+script = ExtResource("1_7wwoj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813145995]
+texture = ExtResource("1_g2fde")
+hframes = 4
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1915789136]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_7wwoj")
+metadata/_custom_type_script = "uid://sw7nb52bnjce"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1897197166]
+position = Vector2(-4.5, 11)
+shape = SubResource("RectangleShape2D_g2fde")
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1937807492]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_6ohb7")
+metadata/_custom_type_script = "uid://ci15w4obnjaks"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=58173704]
+position = Vector2(-5, 2)
+shape = SubResource("RectangleShape2D_7wwoj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=515709175]
+libraries/ = SubResource("AnimationLibrary_6ohb7")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1519143887]
+tree_root = SubResource("AnimationNodeStateMachine_sty0s")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="DamageStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=873826391]
+stream = ExtResource("6_32mqa")
+bus = &"SoundEffects"
