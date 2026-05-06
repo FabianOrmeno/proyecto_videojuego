@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://6ffeqi8j08v6"]
+
+[ext_resource type="Script" uid="uid://c0hcc0nht3vbg" path="res://components/lighthurt_component.gd" id="1_ige6g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5j6w4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ige6g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ige6g"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=972657164]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1014856514]
+shape = SubResource("BoxShape3D_5j6w4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1114500815]
+mesh = SubResource("BoxMesh_ige6g")
+
+[node name="LightHurtComponent" type="Area3D" parent="." unique_id=1545268060]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ige6g")
+metadata/_custom_type_script = "uid://c0hcc0nht3vbg"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1557683194]
+shape = SubResource("BoxShape3D_ige6g")
