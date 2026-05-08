@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://6ffeqi8j08v6" path="res://scenes/enemy_3d.tscn" id="2_3s264"]
 [ext_resource type="Script" uid="uid://oljlhuh3y24w" path="res://scenes/enemy_3d.gd" id="3_kefov"]
 [ext_resource type="PackedScene" uid="uid://cjen4k646ifke" path="res://assets/enemigos/enemy_model.tscn" id="4_mt54i"]
+[ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="5_le0cj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67ruw"]
 size = Vector3(100, 1, 100)
@@ -47,4 +48,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.1446457, 1.0226431, 1
 script = ExtResource("3_kefov")
 player = NodePath("../Player")
 
-[node name="Character_Monster_04" parent="Enemy" unique_id=345031016 instance=ExtResource("4_mt54i")]
+[node name="Character_Monster_05" parent="Enemy" unique_id=345031016 instance=ExtResource("4_mt54i")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952879311]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=319950424 instance=ExtResource("5_le0cj")]

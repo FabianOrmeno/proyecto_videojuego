@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyecto Individual"
-run/main_scene="uid://dpet4t8hlpp5k"
+run/main_scene="uid://cvj2g5s6yv2na"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
