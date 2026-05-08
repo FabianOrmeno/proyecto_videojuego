@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cjen4k646ifke"]
+
+[ext_resource type="PackedScene" uid="uid://b632jquw2qyae" path="res://assets/enemigos/Character_Monster_04.fbx" id="1_1h136"]
+
+[node name="Character_Monster_04" unique_id=345031016 instance=ExtResource("1_1h136")]
