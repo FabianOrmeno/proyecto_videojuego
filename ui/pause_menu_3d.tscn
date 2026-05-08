@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://wede7c8nrnmk" path="res://bgm/linterna.mp3" id="2_68ofv"]
 [ext_resource type="Theme" uid="uid://b8k5h2hcmwirl" path="res://nuevo.tres" id="3_513f4"]
 [ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="4_0pfb1"]
+[ext_resource type="Script" uid="uid://dfbvo4ki2vj8n" path="res://ui/pause_menu_3d.gd" id="1_5p2fg"]
 
 [node name="PauseMenu" type="Control" unique_id=319950424]
 process_mode = 3
@@ -24,6 +25,12 @@ offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("2_0pfb1")
 stretch_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=274304526]
+layout_mode = 0
+offset_right = 854.0
+offset_bottom = 480.0
+color = Color(0.60784316, 0.60784316, 0.60784316, 0.22745098)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=287743227]
 layout_mode = 0
@@ -66,6 +73,18 @@ theme_override_styles/hover = ExtResource("4_0pfb1")
 theme_override_styles/disabled = ExtResource("4_0pfb1")
 theme_override_styles/focus = ExtResource("4_0pfb1")
 text = "Main menu"
+
+[node name="Button (Resume)" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1474431]
+layout_mode = 2
+text = "Continuar"
+
+[node name="Button (Restart)" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1362482035]
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="Button (Main Menu)" type="Button" parent="CenterContainer/VBoxContainer" unique_id=69764444]
+layout_mode = 2
+text = "Menú Principal"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button (Resume)" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button (Restart)" to="." method="_on_button_restart_pressed"]

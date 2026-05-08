@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cjen4k646ifke" path="res://assets/enemigos/enemy_model.tscn" id="4_mt54i"]
 [ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="5_le0cj"]
 [ext_resource type="PackedScene" uid="uid://dc5k7rk28u4ml" path="res://scenes/standing_light.tscn" id="6_78blk"]
+[ext_resource type="Script" uid="uid://oljlhuh3y24w" path="res://scenes/enemy_3d.gd" id="3_kefov"]
+[ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="4_mt54i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67ruw"]
 size = Vector3(100, 1, 100)
@@ -70,3 +72,6 @@ mesh = SubResource("BoxMesh_le0cj")
 
 [node name="StandingLight" parent="." unique_id=279483290 instance=ExtResource("6_78blk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141702030]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=319950424 instance=ExtResource("4_mt54i")]
