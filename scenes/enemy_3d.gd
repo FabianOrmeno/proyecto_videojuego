@@ -3,14 +3,12 @@ extends CharacterBody3D
 @export var speed = 1
 @export var stun_time = 2.0
 @export var catch_distance = 2.0
+@export var player : CharacterBody3D
 
 @onready var light_hurt_component: Area3D = $LightHurtComponent
 
-var player: CharacterBody3D
 var stun_timer = 0.0
 
-func _ready() -> void:
-	player = get_node("..aaasw/Player")
 
 func _physics_process(delta: float) -> void:
 	if player == null:
