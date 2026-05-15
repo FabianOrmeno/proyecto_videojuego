@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dc5k7rk28u4ml"]
+
+[ext_resource type="Script" uid="uid://cfdw6oa3rewa4" path="res://components/lighthit_component.gd" id="1_e0nop"]
+[ext_resource type="Script" uid="uid://dr46r8clqogql" path="res://scenes/standing_light.gd" id="1_fgh0g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgh0g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x7u0h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1pdm6"]
+height = 4.0666504
+radius = 1.0458984
+
+[node name="StandingLight" type="RigidBody3D" unique_id=279483290]
+script = ExtResource("1_fgh0g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370707134]
+shape = SubResource("BoxShape3D_fgh0g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=331425871]
+mesh = SubResource("BoxMesh_x7u0h")
+
+[node name="LightHitComponent" type="Area3D" parent="." unique_id=1635762824]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_e0nop")
+metadata/_custom_type_script = "uid://cfdw6oa3rewa4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHitComponent" unique_id=1128628298]
+transform = Transform3D(1, 0, 0, 0, 0.06334788, 0.9979915, 0, -0.9979915, 0.06334788, 0, 0.065458894, -2.9106643)
+shape = SubResource("CylinderShape3D_1pdm6")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=518730819]
+light_energy = 3.0
+spot_range = 6.9026003
+spot_angle = 29.276297

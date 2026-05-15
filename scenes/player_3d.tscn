@@ -23,9 +23,6 @@ mesh = SubResource("CapsuleMesh_52vux")
 [node name="pivot" type="Node3D" parent="." unique_id=1057230779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52572596, 0)
 
-[node name="Camera3D" type="Camera3D" parent="pivot" unique_id=1432842631]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.73446333)
-
 [node name="LightHitComponent" type="Area3D" parent="pivot" unique_id=328634267]
 collision_layer = 2
 collision_mask = 2
@@ -40,3 +37,23 @@ shape = SubResource("CylinderShape3D_52vux")
 light_energy = 3.0
 spot_range = 6.9026003
 spot_angle = 29.276297
+
+[node name="SpringArm3D" type="SpringArm3D" parent="pivot" unique_id=1993522751]
+spring_length = -1.0
+
+[node name="Camera3D" type="Camera3D" parent="pivot/SpringArm3D" unique_id=1432842631]
+
+[node name="RayCast3D" type="RayCast3D" parent="pivot/SpringArm3D/Camera3D" unique_id=171231929]
+target_position = Vector3(0, 0, -100)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=867788558]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1177938751]
+offset_left = 624.0
+offset_top = 413.0
+offset_right = 841.0
+offset_bottom = 460.0
+max_value = 1000.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Node" type="Node" parent="." unique_id=1008552451]
