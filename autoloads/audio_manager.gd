@@ -5,7 +5,7 @@ extends Node
 var current_music: AudioStream
 
 
-func play_music(music: AudioStream) -> void:
+func play_music(music: AudioStream, from_position = 0.0) -> void:
 	if music == null:
 		return
 	
@@ -14,7 +14,11 @@ func play_music(music: AudioStream) -> void:
 	
 	current_music = music
 	music_player.stream = music
-	music_player.play()
+	music_player.play(from_position)
+
+
+func get_music_position() -> float:
+	return music_player.get_playback_position()
 
 
 func stop_music() -> void:
@@ -25,6 +29,7 @@ func stop_music() -> void:
 func play_sfx(sfx: AudioStream):
 	var player = AudioStreamPlayer.new()
 	add_child(player)
+	player.process_mode = Node.PROCESS_MODE_ALWAYS
 	player.bus = "SoundEffects"
 	player.stream = sfx
 	player.play()
