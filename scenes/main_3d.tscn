@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dpet4t8hlpp5k"]
 
-[ext_resource type="Texture2D" uid="uid://em7nvp4stah1" path="res://icon.svg" id="1_78blk"]
 [ext_resource type="PackedScene" uid="uid://de6k3ipf4nddu" path="res://scenes/player_3d.tscn" id="1_m7dbh"]
 [ext_resource type="PackedScene" uid="uid://6ffeqi8j08v6" path="res://scenes/enemy_3d.tscn" id="2_3s264"]
 [ext_resource type="AudioStream" uid="uid://dm3gbja2ywv1u" path="res://bgm/Cry Of The Unheard.mp3" id="3_1gkdw"]
@@ -19,6 +18,7 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6i3j"]
 albedo_texture = ExtResource("1_78blk")
+[ext_resource type="PackedScene" uid="uid://di6ei4ihl4a43" path="res://scenes/casa.tscn" id="7_a6i3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
 
@@ -37,16 +37,6 @@ sky = SubResource("Sky_m7dbh")
 transform = Transform3D(-0.6045992, -0.6891189, 0.39946827, 0, 0.50151074, 0.8651514, -0.7965298, 0.5230698, -0.30321297, 0, 0, 0)
 visible = false
 shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1709665729]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=333992201]
-shape = SubResource("BoxShape3D_67ruw")
-debug_color = Color(1, 1, 1, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=475164449]
-mesh = SubResource("BoxMesh_67ruw")
-surface_material_override/0 = SubResource("StandardMaterial3D_a6i3j")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1382960042]
 environment = SubResource("Environment_67ruw")
@@ -75,3 +65,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=141702030]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=319950424 instance=ExtResource("4_mt54i")]
+
+[node name="Abandoned_House" parent="." unique_id=578735796 instance=ExtResource("7_a6i3j")]
