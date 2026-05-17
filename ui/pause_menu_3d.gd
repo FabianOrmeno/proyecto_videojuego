@@ -1,5 +1,7 @@
 extends Control
 
+@export var pause_sound: AudioStream
+
 @onready var resume_button: Button = %ResumeButton
 @onready var restart_button: Button = %RestartButton
 @onready var main_menu_button: Button = %MainMenuButton
@@ -16,6 +18,8 @@ func toggle_pause() -> void:
 	visible = get_tree().paused
 
 	if get_tree().paused:
+		if pause_sound != null:
+			AudioManager.play_sfx(pause_sound)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
