@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+@export var game_music: AudioStream
+@export var chase_music: AudioStream
+
 @export var batteryLife = 1000
 @export var speed = 20
 @export var acceleration = 300
@@ -14,6 +17,7 @@ extends CharacterBody3D
 
 var mouse_sensitivity = 0.005
 @export var tilt_limit = deg_to_rad(75)
+var chase_music_started = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -21,7 +25,8 @@ func _ready() -> void:
 	spot_light_3d.hide()
 	progress_bar.max_value = batteryLife
 	progress_bar.value = batteryLife
-
+	if game_music != null:
+		AudioManager.play_music(game_music)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -62,7 +67,10 @@ func _physics_process(delta: float) -> void:
 	if batteryLife == 0 and spot_light_3d.visible:
 		spot_light_3d.visible = !spot_light_3d.visible
 		light_hit_component.visible = !light_hit_component.visible
-		
+		if not chase_music_started:
+			chase_music_started = true
+			if chase_music!= null:
+				AudioManager.play_music(chase_music)
 	direction = direction.normalized()
 	
 	velocity.x = direction.x*speed 

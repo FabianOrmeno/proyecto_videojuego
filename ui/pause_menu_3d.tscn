@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5p2fg")
-pause_sound = ExtResource("2_68ofv")
+pause_music = ExtResource("2_68ofv")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=276379144]
 layout_mode = 0
