@@ -37,6 +37,11 @@ func _physics_process(delta: float) -> void:
 	direction.y = 0
 	direction = direction.normalized()
 	
+	
+	var look_position = Vector3(player.global_position.x, global_position.y, player.global_position.z)
+	look_at(look_position, Vector3.UP)
+
+	
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	

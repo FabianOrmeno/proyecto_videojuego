@@ -55,6 +55,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.1446457, 1.0226431, 1
 player = NodePath("../Player")
 
 [node name="Character_Monster_05" parent="Enemy" unique_id=345031016 instance=ExtResource("4_mt54i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952879311]
 
