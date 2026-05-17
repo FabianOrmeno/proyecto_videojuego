@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://b8k5h2hcmwirl"]
+
+[ext_resource type="FontFile" uid="uid://cbepp6j0of8bu" path="res://fonts/HorrorFont-Regular.ttf" id="1_mk52s"]
+
+[resource]
+default_font = ExtResource("1_mk52s")
+default_font_size = 40
