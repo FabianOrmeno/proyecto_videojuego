@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://dpet4t8hlpp5k"]
 
+[ext_resource type="Texture2D" uid="uid://em7nvp4stah1" path="res://icon.svg" id="1_78blk"]
 [ext_resource type="PackedScene" uid="uid://de6k3ipf4nddu" path="res://scenes/player_3d.tscn" id="1_m7dbh"]
 [ext_resource type="PackedScene" uid="uid://6ffeqi8j08v6" path="res://scenes/enemy_3d.tscn" id="2_3s264"]
-[ext_resource type="Script" uid="uid://oljlhuh3y24w" path="res://scenes/enemy_3d.gd" id="3_kefov"]
 [ext_resource type="PackedScene" uid="uid://cjen4k646ifke" path="res://assets/enemigos/enemy_model.tscn" id="4_mt54i"]
 [ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="5_le0cj"]
+[ext_resource type="PackedScene" uid="uid://dc5k7rk28u4ml" path="res://scenes/standing_light.tscn" id="6_78blk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67ruw"]
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_67ruw"]
 size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6i3j"]
+albedo_texture = ExtResource("1_78blk")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
 
@@ -20,6 +24,8 @@ sky_material = SubResource("ProceduralSkyMaterial_67ruw")
 [sub_resource type="Environment" id="Environment_67ruw"]
 background_mode = 2
 sky = SubResource("Sky_m7dbh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_le0cj"]
 
 [node name="Node3D" type="Node3D" unique_id=2109372661]
 
@@ -36,6 +42,7 @@ debug_color = Color(1, 1, 1, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=475164449]
 mesh = SubResource("BoxMesh_67ruw")
+surface_material_override/0 = SubResource("StandardMaterial3D_a6i3j")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1382960042]
 environment = SubResource("Environment_67ruw")
@@ -45,7 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95541, 15.76904, 1.7386217)
 
 [node name="Enemy" parent="." unique_id=972657164 node_paths=PackedStringArray("player") instance=ExtResource("2_3s264")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.1446457, 1.0226431, 16.89143)
-script = ExtResource("3_kefov")
 player = NodePath("../Player")
 
 [node name="Character_Monster_05" parent="Enemy" unique_id=345031016 instance=ExtResource("4_mt54i")]
@@ -53,3 +59,10 @@ player = NodePath("../Player")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952879311]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=319950424 instance=ExtResource("5_le0cj")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=679966820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7314644, 0)
+mesh = SubResource("BoxMesh_le0cj")
+
+[node name="StandingLight" parent="." unique_id=279483290 instance=ExtResource("6_78blk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)

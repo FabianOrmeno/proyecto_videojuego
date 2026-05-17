@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://6ffeqi8j08v6"]
 
+[ext_resource type="Script" uid="uid://oljlhuh3y24w" path="res://scenes/enemy_3d.gd" id="1_2teg2"]
 [ext_resource type="Script" uid="uid://c0hcc0nht3vbg" path="res://components/lighthurt_component.gd" id="1_ige6g"]
 [ext_resource type="PackedScene" uid="uid://cjen4k646ifke" path="res://assets/enemigos/enemy_model.tscn" id="1_j3yqb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5j6w4"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ige6g"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j3yqb"]
+radius = 0.8359375
+height = 5.751953
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=972657164]
+script = ExtResource("1_2teg2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1014856514]
-shape = SubResource("BoxShape3D_5j6w4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8671875, 0)
+shape = SubResource("CapsuleShape3D_j3yqb")
 
 [node name="Character_Monster_04" parent="." unique_id=345031016 instance=ExtResource("1_j3yqb")]
 
@@ -20,5 +23,6 @@ collision_mask = 2
 script = ExtResource("1_ige6g")
 metadata/_custom_type_script = "uid://c0hcc0nht3vbg"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1557683194]
-shape = SubResource("BoxShape3D_ige6g")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1114250616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8671875, 0)
+shape = SubResource("CapsuleShape3D_j3yqb")
