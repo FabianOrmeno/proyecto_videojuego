@@ -14,6 +14,7 @@ func play_music(music: AudioStream, from_position = 0.0) -> void:
 	
 	current_music = music
 	music_player.stream = music
+	music_player.bus = "Music"
 	music_player.play(from_position)
 
 
