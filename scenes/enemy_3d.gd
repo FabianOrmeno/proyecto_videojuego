@@ -3,7 +3,9 @@ extends CharacterBody3D
 @export var speed = 1
 @export var stun_time = 2.0
 @export var catch_distance = 2.0
+@export var chase_distance = 15.0
 @export var player : CharacterBody3D
+
 
 @onready var light_hurt_component: Area3D = $LightHurtComponent
 
@@ -16,6 +18,12 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
+		
+	if not can_chase_player():
+			velocity.x = 0
+			velocity.z = 0
+			move_and_slide()
+			return	
 	
 	var is_being_hit_by_light = is_in_light()
 	
@@ -37,6 +45,9 @@ func _physics_process(delta: float) -> void:
 	direction.y = 0
 	direction = direction.normalized()
 	
+	
+	rotation.y = atan2(direction.x, direction.z) 
+	
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	
@@ -46,6 +57,11 @@ func _physics_process(delta: float) -> void:
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+func can_chase_player() -> bool:
+	if global_position.distance_to(player.global_position) <= chase_distance:
+		return true
+	
+	return false
 
 func is_in_light() -> bool:
 	for area in light_hurt_component.get_overlapping_areas():

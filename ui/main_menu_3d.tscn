@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://cvj2g5s6yv2na"]
 
-[ext_resource type="Script" uid="uid://cdqp15in0b5qn" path="res://ui/main_menu_3d.gd" id="1_8f1fx"]
+[ext_resource type="Theme" uid="uid://b8k5h2hcmwirl" path="res://nuevo.tres" id="1_3kjjo"]
+[ext_resource type="Script" uid="uid://dusbn3q4aei5c" path="res://ui/main_menu_3d.gd" id="1_8f1fx"]
+[ext_resource type="Texture2D" uid="uid://s1ul0xu3d153" path="res://assets/menu/menu_centrada_50_negro.jpg" id="2_r1rbh"]
+[ext_resource type="Texture2D" uid="uid://coq1nfonran07" path="res://assets/menu/no_light.jpg" id="3_3kjjo"]
+[ext_resource type="AudioStream" uid="uid://wede7c8nrnmk" path="res://bgm/linterna.mp3" id="4_r1rbh"]
+[ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="6_1ocrj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ocrj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoodq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_faf8m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainMenu" type="Control" unique_id=1753746275]
 layout_mode = 3
@@ -9,35 +23,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3kjjo")
 script = ExtResource("1_8f1fx")
+background_light_on = ExtResource("2_r1rbh")
+background_light_off = ExtResource("3_3kjjo")
+menu_music = ExtResource("4_r1rbh")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2069812676]
-layout_mode = 0
-offset_right = 854.0
-offset_bottom = 480.0
-color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2036296143]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=492102805]
 layout_mode = 0
-offset_left = 303.0
-offset_top = 89.0
-offset_right = 518.0
-offset_bottom = 360.0
+offset_left = 290.0
+offset_top = 120.0
+offset_right = 555.0
+offset_bottom = 391.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=76196052]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8957587, 0, 0.24281001, 1)
-text = "The Game"
+theme_override_colors/font_color = Color(0.7254902, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "FLICKER"
 horizontal_alignment = 1
 
 [node name="Button (Play)" type="Button" parent="VBoxContainer" unique_id=1476627120]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("6_1ocrj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ocrj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yoodq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_faf8m")
 text = "Play"
 
 [node name="Button (Exit)" type="Button" parent="VBoxContainer" unique_id=1549956182]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("6_1ocrj")
+theme_override_styles/pressed = ExtResource("6_1ocrj")
+theme_override_styles/hover = ExtResource("6_1ocrj")
+theme_override_styles/disabled = ExtResource("6_1ocrj")
+theme_override_styles/focus = ExtResource("6_1ocrj")
 text = "Exit"
+
+[node name="FlickerTimer" type="Timer" parent="." unique_id=50591700]
 
 [connection signal="pressed" from="VBoxContainer/Button (Play)" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button (Exit)" to="." method="_on_button_exit_pressed"]

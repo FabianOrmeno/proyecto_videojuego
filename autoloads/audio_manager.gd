@@ -2,11 +2,25 @@ extends Node
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
-func _ready() -> void:
-	play_music()
+var current_music: AudioStream
 
-func play_music():
+
+func play_music(music: AudioStream) -> void:
+	if music == null:
+		return
+	
+	if current_music == music and music_player.playing:
+		return
+	
+	current_music = music
+	music_player.stream = music
 	music_player.play()
+
+
+func stop_music() -> void:
+	music_player.stop()
+	current_music = null
+
 
 func play_sfx(sfx: AudioStream):
 	var player = AudioStreamPlayer.new()
