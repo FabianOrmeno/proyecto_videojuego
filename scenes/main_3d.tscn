@@ -36,7 +36,7 @@ game_music = ExtResource("3_1gkdw")
 chase_music = ExtResource("4_6g3y2")
 
 [node name="Enemy" parent="." unique_id=972657164 node_paths=PackedStringArray("player") instance=ExtResource("2_3s264")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.1446457, 1.0226431, 16.89143)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, -10)
 player = NodePath("../Player")
 
 [node name="Character_Monster_05" parent="Enemy" unique_id=345031016 instance=ExtResource("4_mt54i")]
