@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://di6ei4ihl4a43"]
+
+[ext_resource type="PackedScene" uid="uid://fn3tk6ilqwk3" path="res://assets/Abandoned_House/Models/Abandoned_House.glb" id="1_427ab"]
+[ext_resource type="Script" uid="uid://ull7t84shqt4" path="res://scenes/casa.gd" id="2_l7c5q"]
+
+[node name="Abandoned_House" unique_id=578735796 instance=ExtResource("1_427ab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, 118.5)
+script = ExtResource("2_l7c5q")
