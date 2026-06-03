@@ -1,11 +1,12 @@
+class_name Player3D
 extends CharacterBody3D
 
 @export var game_music: AudioStream
 @export var chase_music: AudioStream
 
 @export var batteryLife = 1000
-@export var speed = 20
-@export var acceleration = 300
+@export var speed = 2
+@export var acceleration = 3
 @export var item = preload("res://scenes/standing_light.tscn")
 @onready var pivot: Node3D = $pivot
 @onready var ray_cast_3d: RayCast3D = $pivot/SpringArm3D/Camera3D/RayCast3D
@@ -14,10 +15,14 @@ extends CharacterBody3D
 @onready var light_hit_component: LightHitComponent = $pivot/LightHitComponent
 @onready var spot_light_3d: SpotLight3D = $pivot/SpotLight3D
 @onready var progress_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var batteries: Label = $CanvasLayer/Batteries
+@onready var lights: Label = $CanvasLayer/Lights
 
 var mouse_sensitivity = 0.005
 @export var tilt_limit = deg_to_rad(75)
 var chase_music_started = false
+var battery_amount = 2
+var light_amount = 2
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -52,14 +57,27 @@ func _physics_process(delta: float) -> void:
 		spot_light_3d.visible = !spot_light_3d.visible
 		light_hit_component.visible = !light_hit_component.visible
 		
-	if Input.is_action_just_pressed("use"):
+	if Input.is_action_just_pressed("reload") and battery_amount > 0:
+		batteryLife = 1000
+		battery_amount -= 1
+		progress_bar.value = batteryLife
+		batteries.text = "Batteries: " + str(battery_amount)
+		
+	if Input.is_action_just_pressed("use") and light_amount > 0:
 		if ray_cast_3d.is_colliding() and is_instance_of(ray_cast_3d.get_collider(), StaticBody3D):
 			var new_position = ray_cast_3d.get_collision_point()
-			if global_position.distance_to(new_position)<4 :
+			if global_position.distance_to(new_position)<4:
 				var new_item = item.instantiate()
 				node.add_child(new_item)
-				new_item.global_position = new_position 
+				new_item.global_position = new_position
+				new_item.global_position.y += 0.2 
 				new_item.global_rotation = Vector3(0, pivot.global_rotation.y, 0)
+				light_amount -= 1
+				lights.text = "Lights: " + str(light_amount)
+	if Input.is_action_just_pressed("interact"):
+		if ray_cast_3d.is_colliding() and is_instance_of(ray_cast_3d.get_collider(), Items):
+			ray_cast_3d.get_collider().pick_up(self)
+					
 	if spot_light_3d.visible:
 		batteryLife -= 1
 		progress_bar.value = batteryLife
@@ -77,3 +95,11 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z*speed
 		
 	move_and_slide()
+
+func add_battery():
+	battery_amount += 1
+	batteries.text = "Batteries: " + str(battery_amount)
+
+func add_light():
+	light_amount += 1
+	lights.text = "Lights: " + str(light_amount)

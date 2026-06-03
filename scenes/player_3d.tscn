@@ -58,4 +58,18 @@ offset_bottom = 460.0
 max_value = 1000.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Batteries" type="Label" parent="CanvasLayer" unique_id=903845827]
+offset_left = 61.0
+offset_top = 393.0
+offset_right = 149.0
+offset_bottom = 416.0
+text = "Batteries: 2"
+
+[node name="Lights" type="Label" parent="CanvasLayer" unique_id=483972412]
+offset_left = 63.0
+offset_top = 425.0
+offset_right = 128.0
+offset_bottom = 448.0
+text = "Lights: 2"
+
 [node name="Node" type="Node" parent="." unique_id=1008552451]

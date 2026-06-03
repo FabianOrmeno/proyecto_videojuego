@@ -17,8 +17,8 @@ func _on_area_exited(area: Area3D) -> void:
 	var hitbox = area as LightHitComponent
 	if hitbox:
 		Debug.log("Exited light")
-		if owner.has_method("exited_light"):
-			owner.extited_light()
+		if owner and owner.has_method("exited_light"):
+			owner.exited_light()
 
 			
 func _on_visibility_changed():
