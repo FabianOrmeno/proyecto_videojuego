@@ -2,39 +2,20 @@
 
 [ext_resource type="Script" uid="uid://c0hcc0nht3vbg" path="res://components/lighthurt_component.gd" id="1_6vlyk"]
 [ext_resource type="Script" uid="uid://bk5s106ypi2us" path="res://items/battery.gd" id="1_8h0n8"]
+[ext_resource type="PackedScene" uid="uid://bksc207561mkd" path="res://items/battery_body.tscn" id="2_6q2tk"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_8h0n8"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_8h0n8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8h0n8"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.01
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q2tk"]
-next_pass = SubResource("StandardMaterial3D_8h0n8")
-stencil_mode = 1
-stencil_flags = 2
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_6yjuq"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6q2tk"]
+height = 0.8
+radius = 0.2
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1553128371]
 script = ExtResource("1_8h0n8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1724485524]
-shape = SubResource("SphereShape3D_8h0n8")
+shape = SubResource("CylinderShape3D_6q2tk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1992200345]
-mesh = SubResource("SphereMesh_8h0n8")
-surface_material_override/0 = SubResource("StandardMaterial3D_6q2tk")
+[node name="battery" parent="." unique_id=2096687389 instance=ExtResource("2_6q2tk")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.013108313, 0)
 
 [node name="LightHurtComponent" type="Area3D" parent="." unique_id=2106368363]
 collision_layer = 2
@@ -42,5 +23,5 @@ collision_mask = 2
 script = ExtResource("1_6vlyk")
 metadata/_custom_type_script = "uid://c0hcc0nht3vbg"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1551585463]
-shape = SubResource("SphereShape3D_6yjuq")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=2019094994]
+shape = SubResource("CylinderShape3D_6q2tk")

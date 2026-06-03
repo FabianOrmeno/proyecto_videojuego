@@ -1,7 +1,7 @@
 extends Items
 
 func _ready() -> void:
-	mesh_instance_3d = $MeshInstance3D
+	body = $Lantern
 	super._ready()
 
 func pick_up(player: Player3D):

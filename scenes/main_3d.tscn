@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)
 [node name="Abandoned_House" parent="." unique_id=578735796 instance=ExtResource("8_1gkdw")]
 
 [node name="StaticBody3D" parent="." unique_id=1553128371 instance=ExtResource("9_6g3y2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009498417, -2.3841858e-07, -1.4359493)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.009498417, -2.3841858e-07, -1.4359493)
 
 [node name="StaticBody3D2" parent="." unique_id=1727339715 instance=ExtResource("10_j26j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2901642, 0.13697422, -2.271904)

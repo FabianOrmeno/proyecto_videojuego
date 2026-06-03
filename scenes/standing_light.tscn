@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dc5k7rk28u4ml"]
 
 [ext_resource type="Script" uid="uid://cfdw6oa3rewa4" path="res://components/lighthit_component.gd" id="1_e0nop"]
+[ext_resource type="PackedScene" uid="uid://beftsirw1lvd8" path="res://items/lantern_on.tscn" id="2_fgh0g"]
 
 [sub_resource type="GDScript" id="GDScript_e0nop"]
 script/source = "extends RigidBody3D
@@ -13,22 +14,13 @@ func _physics_process(_delta: float) -> void:
 		queue_free()
 "
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fgh0g"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_x7u0h"]
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pdm6"]
-height = 4.0666504
-radius = 1.0458984
+radius = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fgh0g"]
 
 [node name="StandingLight" type="RigidBody3D" unique_id=279483290]
 script = SubResource("GDScript_e0nop")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370707134]
-shape = SubResource("BoxShape3D_fgh0g")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=331425871]
-mesh = SubResource("BoxMesh_x7u0h")
 
 [node name="LightHitComponent" type="Area3D" parent="." unique_id=1635762824]
 collision_layer = 2
@@ -37,10 +29,13 @@ script = ExtResource("1_e0nop")
 metadata/_custom_type_script = "uid://cfdw6oa3rewa4"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LightHitComponent" unique_id=1128628298]
-transform = Transform3D(1, 0, 0, 0, 0.06334788, 0.9979915, 0, -0.9979915, 0.06334788, 0, 0.065458894, -2.9106643)
 shape = SubResource("CylinderShape3D_1pdm6")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=518730819]
-light_energy = 3.0
-spot_range = 6.9026003
-spot_angle = 29.276297
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1039785892]
+
+[node name="Lantern_on" parent="." unique_id=417562448 instance=ExtResource("2_fgh0g")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.055512607, -0.47966582, -0.41538376)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1174507882]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.10491735, 0)
+shape = SubResource("CylinderShape3D_fgh0g")

@@ -1,17 +1,17 @@
 class_name Items
 extends StaticBody3D
 
-var mesh_instance_3d
+var body
 
 func _ready() -> void:
-	mesh_instance_3d.get("surface_material_override/0").stencil_mode = BaseMaterial3D.STENCIL_MODE_DISABLED
+	body.deactivate_outline()
 
 func entered_light():
-	mesh_instance_3d.get("surface_material_override/0").stencil_mode = BaseMaterial3D.STENCIL_MODE_OUTLINE
+	body.activate_outline()
 	return
 	
 func exited_light():
-	mesh_instance_3d.get("surface_material_override/0").stencil_mode = BaseMaterial3D.STENCIL_MODE_DISABLED
+	body.deactivate_outline()
 	return
 	
 func pick_up(player: Player3D):

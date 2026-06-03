@@ -14,7 +14,7 @@ extends CharacterBody3D
 
 @onready var light_hit_component: LightHitComponent = $pivot/LightHitComponent
 @onready var spot_light_3d: SpotLight3D = $pivot/SpotLight3D
-@onready var progress_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var progress_bar: ProgressBar = $CanvasLayer/Panel/ProgressBar
 @onready var batteries: Label = $CanvasLayer/Batteries
 @onready var lights: Label = $CanvasLayer/Lights
 

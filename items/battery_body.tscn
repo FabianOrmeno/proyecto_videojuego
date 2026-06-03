@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bksc207561mkd"]
+
+[ext_resource type="PackedScene" uid="uid://76mg10xdmyj4" path="res://assets/items/battery/battery.glb" id="1_8j7r4"]
+[ext_resource type="Script" uid="uid://b2yuh6x1128pe" path="res://items/battery_body.gd" id="2_vhmg7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhmg7"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+grow = true
+grow_amount = 0.1
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oahnh"]
+next_pass = SubResource("StandardMaterial3D_vhmg7")
+albedo_color = Color(1, 1, 0.3137255, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+stencil_outline_thickness = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2mxv"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+grow = true
+grow_amount = 0.1
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmd5d"]
+next_pass = SubResource("StandardMaterial3D_g2mxv")
+albedo_color = Color(0, 0, 0, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+stencil_outline_thickness = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xh5g"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+grow = true
+grow_amount = 0.1
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uunm"]
+next_pass = SubResource("StandardMaterial3D_5xh5g")
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+stencil_outline_thickness = 0.1
+
+[node name="battery" unique_id=2096687389 instance=ExtResource("1_8j7r4")]
+script = ExtResource("2_vhmg7")
+
+[node name="Cylinder" parent="." index="0" unique_id=1138534641]
+surface_material_override/0 = SubResource("StandardMaterial3D_oahnh")
+surface_material_override/1 = SubResource("StandardMaterial3D_qmd5d")
+surface_material_override/2 = SubResource("StandardMaterial3D_4uunm")

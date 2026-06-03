@@ -2,39 +2,19 @@
 
 [ext_resource type="Script" uid="uid://c0hcc0nht3vbg" path="res://components/lighthurt_component.gd" id="1_4ftc2"]
 [ext_resource type="Script" uid="uid://dw8ic15gcdrco" path="res://items/light_item.gd" id="1_h2243"]
+[ext_resource type="PackedScene" uid="uid://bvmoug8gtsba0" path="res://items/lantern_off.tscn" id="2_o0dre"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h2243"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_h2243"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2243"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.01
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blher"]
-next_pass = SubResource("StandardMaterial3D_h2243")
-stencil_mode = 1
-stencil_flags = 2
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_peye5"]
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1727339715]
 script = ExtResource("1_h2243")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1624921558]
-shape = SubResource("CylinderShape3D_h2243")
+[node name="Lantern" parent="." unique_id=417562448 instance=ExtResource("2_o0dre")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.05572298, 0, -0.42118594)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=156896759]
-mesh = SubResource("CylinderMesh_h2243")
-surface_material_override/0 = SubResource("StandardMaterial3D_blher")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1624921558]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.43908936, 0)
+shape = SubResource("CylinderShape3D_h2243")
 
 [node name="LightHurtComponent" type="Area3D" parent="." unique_id=1358977397]
 collision_layer = 2
@@ -42,5 +22,6 @@ collision_mask = 2
 script = ExtResource("1_4ftc2")
 metadata/_custom_type_script = "uid://c0hcc0nht3vbg"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1056468459]
-shape = SubResource("CylinderShape3D_peye5")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1897316688]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.43908936, 0)
+shape = SubResource("CylinderShape3D_h2243")
