@@ -30,7 +30,7 @@ shadow_enabled = true
 environment = SubResource("Environment_67ruw")
 
 [node name="Player" parent="." unique_id=1559358042 instance=ExtResource("1_m7dbh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3316644, -2.7799163, -8.190865)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3316644, 1.5209515, -2.1470153)
 game_music = ExtResource("3_1gkdw")
 chase_music = ExtResource("4_6g3y2")
 
