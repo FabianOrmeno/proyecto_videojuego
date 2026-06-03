@@ -13,6 +13,7 @@ height = 4.0666504
 radius = 1.0458984
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1559358042]
+floor_snap_length = 4.0
 script = ExtResource("1_52vux")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1485242385]

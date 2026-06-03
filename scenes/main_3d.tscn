@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://6ffeqi8j08v6" path="res://scenes/enemy_3d.tscn" id="2_3s264"]
 [ext_resource type="AudioStream" uid="uid://dm3gbja2ywv1u" path="res://bgm/Cry Of The Unheard.mp3" id="3_1gkdw"]
 [ext_resource type="AudioStream" uid="uid://dbgowyx01xtuf" path="res://bgm/NO SALVATION.mp3" id="4_6g3y2"]
-[ext_resource type="PackedScene" uid="uid://cjen4k646ifke" path="res://assets/enemigos/enemy_model.tscn" id="4_mt54i"]
 [ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="5_le0cj"]
 [ext_resource type="PackedScene" uid="uid://dc5k7rk28u4ml" path="res://scenes/standing_light.tscn" id="6_78blk"]
 [ext_resource type="PackedScene" uid="uid://di6ei4ihl4a43" path="res://scenes/casa.tscn" id="8_1gkdw"]
@@ -31,15 +30,13 @@ shadow_enabled = true
 environment = SubResource("Environment_67ruw")
 
 [node name="Player" parent="." unique_id=1559358042 instance=ExtResource("1_m7dbh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3316644, -2.7799163, -8.190865)
 game_music = ExtResource("3_1gkdw")
 chase_music = ExtResource("4_6g3y2")
 
 [node name="Enemy" parent="." unique_id=972657164 node_paths=PackedStringArray("player") instance=ExtResource("2_3s264")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, -10)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.512588, 1, -15.421447)
 player = NodePath("../Player")
-
-[node name="Character_Monster_05" parent="Enemy" unique_id=345031016 instance=ExtResource("4_mt54i")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952879311]
 

@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var chase_distance = 15.0
 @export var player : CharacterBody3D
 
+@onready var animation_player: AnimationPlayer = $Character_Monster_04/AnimationPlayer
 
 @onready var light_hurt_component: Area3D = $LightHurtComponent
 
@@ -52,7 +53,8 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * speed
 	
 	move_and_slide()
-	
+	Debug.log(velocity.length(),2*delta)
+	animation_player.speed_scale=velocity.length()/2
 	if global_position.distance_to(player.global_position) <= catch_distance:
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
