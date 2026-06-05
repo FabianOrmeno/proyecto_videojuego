@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var speed = 1
-@export var stun_time = 2.0
+@export var stun_time = 0.5
 @export var catch_distance = 3.0
 @export var chase_distance = 15.0
 @export var player : CharacterBody3D
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			velocity.z = 0
 			move_and_slide()
-			return	
+			return
 	
 	var is_being_hit_by_light = is_in_light()
 	
@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 		move_and_slide()
+		animation_player.speed_scale = 0
+		
 		return
 	
 	if stun_timer > 0:
@@ -43,6 +45,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 		move_and_slide()
 		return
+	else:
+		animation_player.speed_scale = 1
 	
 	var direction = player.global_position - global_position
 	direction.y = 0

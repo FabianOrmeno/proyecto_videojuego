@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 				var new_item = item.instantiate()
 				node.add_child(new_item)
 				new_item.global_position = new_position
-				new_item.global_position.y += 0.2 
+				new_item.global_position.y += 0.3
 				new_item.global_rotation = Vector3(0, pivot.global_rotation.y, 0)
 				light_amount -= 1
 				lights.text = "Lights: " + str(light_amount)

@@ -6,7 +6,7 @@
 [sub_resource type="GDScript" id="GDScript_e0nop"]
 script/source = "extends RigidBody3D
 
-@export var battery_life = 1000
+@export var battery_life = 500
 
 func _physics_process(_delta: float) -> void:
 	battery_life -= 1

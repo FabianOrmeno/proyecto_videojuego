@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://byixm4nvh08ck" path="res://items/light_item.tscn" id="10_j26j0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
+sky_top_color = Color(0.05769398, 0.113009505, 0.20592856, 1)
+sky_horizon_color = Color(0.015264717, 0.015677197, 0.016521478, 1)
+ground_bottom_color = Color(0.05514943, 0.041456588, 0.027315067, 1)
 
 [sub_resource type="Sky" id="Sky_m7dbh"]
 sky_material = SubResource("ProceduralSkyMaterial_67ruw")
@@ -18,14 +21,14 @@ sky_material = SubResource("ProceduralSkyMaterial_67ruw")
 [sub_resource type="Environment" id="Environment_67ruw"]
 background_mode = 2
 sky = SubResource("Sky_m7dbh")
-
-[sub_resource type="BoxMesh" id="BoxMesh_le0cj"]
+ambient_light_source = 2
+ambient_light_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [node name="Node3D" type="Node3D" unique_id=2109372661]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=684154340]
 transform = Transform3D(-0.6045992, -0.6891189, 0.39946827, 0, 0.50151074, 0.8651514, -0.7965298, 0.5230698, -0.30321297, 0, 0, 0)
-visible = false
+light_energy = 0.2
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1382960042]
@@ -44,17 +47,14 @@ player = NodePath("../Player")
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=319950424 instance=ExtResource("5_le0cj")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=679966820]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7314644, 0)
-mesh = SubResource("BoxMesh_le0cj")
-
 [node name="StandingLight" parent="." unique_id=279483290 instance=ExtResource("6_78blk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)
 
 [node name="Abandoned_House" parent="." unique_id=578735796 instance=ExtResource("8_1gkdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.45395, 0.100948334, 118.555534)
 
 [node name="StaticBody3D" parent="." unique_id=1553128371 instance=ExtResource("9_6g3y2")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.009498417, -2.3841858e-07, -1.4359493)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.7061932, 0.83970183, -2.9187522)
 
 [node name="StaticBody3D2" parent="." unique_id=1727339715 instance=ExtResource("10_j26j0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2901642, 0.13697422, -2.271904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2901642, -0.051957905, -2.271904)

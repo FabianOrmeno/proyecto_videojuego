@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjo8eq6asosi1" path="res://scenes/player_3d.gd" id="1_52vux"]
 [ext_resource type="Script" uid="uid://cfdw6oa3rewa4" path="res://components/lighthit_component.gd" id="2_reoop"]
+[ext_resource type="Script" uid="uid://b1t2sktnxk4lv" path="res://scenes/progress_bar.gd" id="3_2djwe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwvw1"]
 radius = 0.3
@@ -83,6 +84,7 @@ offset_right = 217.0
 offset_bottom = 47.0
 theme = SubResource("Theme_reoop")
 max_value = 1000.0
+script = ExtResource("3_2djwe")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Panel" unique_id=1869177203]
