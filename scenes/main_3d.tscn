@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="5_le0cj"]
 [ext_resource type="PackedScene" uid="uid://dc5k7rk28u4ml" path="res://scenes/standing_light.tscn" id="6_78blk"]
 [ext_resource type="PackedScene" uid="uid://di6ei4ihl4a43" path="res://scenes/casa.tscn" id="8_1gkdw"]
+[ext_resource type="PackedScene" uid="uid://b1eqww1dwjwih" path="res://items/battery.tscn" id="9_6g3y2"]
+[ext_resource type="PackedScene" uid="uid://byixm4nvh08ck" path="res://items/light_item.tscn" id="10_j26j0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
 
@@ -50,3 +52,9 @@ mesh = SubResource("BoxMesh_le0cj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)
 
 [node name="Abandoned_House" parent="." unique_id=578735796 instance=ExtResource("8_1gkdw")]
+
+[node name="StaticBody3D" parent="." unique_id=1553128371 instance=ExtResource("9_6g3y2")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.009498417, -2.3841858e-07, -1.4359493)
+
+[node name="StaticBody3D2" parent="." unique_id=1727339715 instance=ExtResource("10_j26j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2901642, 0.13697422, -2.271904)

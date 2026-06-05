@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bvmoug8gtsba0"]
+
+[ext_resource type="PackedScene" uid="uid://ydfeoygalft3" path="res://assets/items/Lantern.fbx" id="1_qi162"]
+[ext_resource type="Script" uid="uid://bhj4svcs7n5kh" path="res://items/lantern_off.gd" id="2_cqyc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v60l"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+grow = true
+grow_amount = 0.001
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qi162"]
+next_pass = SubResource("StandardMaterial3D_7v60l")
+albedo_color = Color(1, 0, 0.29411766, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+stencil_outline_thickness = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tirv"]
+albedo_color = Color(0.09803922, 0.09803922, 0.09411765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4dq3"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+grow = true
+grow_amount = 0.001
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqyc4"]
+next_pass = SubResource("StandardMaterial3D_n4dq3")
+albedo_color = Color(1, 0, 0.29411766, 1)
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(18.892157, 18.892157, 18.892157, 0.003921569)
+stencil_outline_thickness = 0.001
+
+[node name="Lantern_off" unique_id=417562448 instance=ExtResource("1_qi162")]
+script = ExtResource("2_cqyc4")
+
+[node name="Cylinder" parent="." index="0" unique_id=1429470252]
+surface_material_override/0 = SubResource("StandardMaterial3D_qi162")
+surface_material_override/1 = SubResource("StandardMaterial3D_6tirv")
+
+[node name="Torus" parent="Cylinder" index="0" unique_id=422814903]
+surface_material_override/0 = SubResource("StandardMaterial3D_cqyc4")
