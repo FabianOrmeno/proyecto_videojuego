@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cbpxgmqsgcp1n"]
 
 [ext_resource type="Script" uid="uid://dnjgc1shih422" path="res://ui/pause_menu_3d.gd" id="1_5p2fg"]
-[ext_resource type="Texture2D" uid="uid://cogpsuqc3spb1" path="res://assets/menu/fria.png" id="2_0pfb1"]
 [ext_resource type="AudioStream" uid="uid://wede7c8nrnmk" path="res://bgm/linterna.mp3" id="2_68ofv"]
+[ext_resource type="Texture2D" uid="uid://8qfy0wxna6j6" path="res://assets/menu/last.jpg" id="3_68ofv"]
 [ext_resource type="Theme" uid="uid://b8k5h2hcmwirl" path="res://nuevo.tres" id="3_513f4"]
 [ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="4_0pfb1"]
 
@@ -22,14 +22,14 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("2_0pfb1")
+texture = ExtResource("3_68ofv")
 stretch_mode = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=287743227]
 layout_mode = 0
-offset_left = 314.5
+offset_left = 300.0
 offset_top = 161.0
-offset_right = 539.5
+offset_right = 525.0
 offset_bottom = 319.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1967786773]

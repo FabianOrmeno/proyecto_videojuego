@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cogpsuqc3spb1"
-path="res://.godot/imported/fria.png-b4278326206b154414e76db0197bbbd6.ctex"
+uid="uid://bs7b4i0222nfr"
+path="res://.godot/imported/all_white.png-774b21441273862a9bf24d9246ba632c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/fria.png"
-dest_files=["res://.godot/imported/fria.png-b4278326206b154414e76db0197bbbd6.ctex"]
+source_file="res://assets/menu/all_white.png"
+dest_files=["res://.godot/imported/all_white.png-774b21441273862a9bf24d9246ba632c.ctex"]
 
 [params]
 

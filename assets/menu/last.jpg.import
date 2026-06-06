@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvw4j1143i06i"
-path="res://.godot/imported/pausita.png-d23097318c0c293d7be74eed5573a485.ctex"
+uid="uid://8qfy0wxna6j6"
+path="res://.godot/imported/last.jpg-b1daf3791f4f52d699289e59a8229a6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/pausita.png"
-dest_files=["res://.godot/imported/pausita.png-d23097318c0c293d7be74eed5573a485.ctex"]
+source_file="res://assets/menu/last.jpg"
+dest_files=["res://.godot/imported/last.jpg-b1daf3791f4f52d699289e59a8229a6c.ctex"]
 
 [params]
 
