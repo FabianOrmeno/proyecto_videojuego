@@ -2,9 +2,11 @@ extends Control
 
 @export var pause_music: AudioStream
 
-@onready var resume_button: Button = %ResumeButton
-@onready var restart_button: Button = %RestartButton
-@onready var main_menu_button: Button = %MainMenuButton
+@onready var resume_button: Button = %"Button (Resume)"
+@onready var restart_button: Button = %"Button (Restart)"
+@onready var main_menu_button: Button = %"Button (Main Menu)"
+@onready var game_over_screen: GameOverScreen = $"../GameOverScreen"
+@onready var victory_screen: VictoryScreen = $"../VictoryScreen"
 
 var music_before_pause: AudioStream
 var music_position_before_pause = 0.0
@@ -16,11 +18,20 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if game_over_screen != null and game_over_screen.is_game_over_active():
+		return
+	if victory_screen != null and victory_screen.is_victory_active():
+		return
 	if event.is_action_pressed("pause"):
 		toggle_pause()
 
 
 func toggle_pause() -> void:
+	if game_over_screen != null and game_over_screen.is_game_over_active():
+		return
+	if victory_screen != null and victory_screen.is_victory_active():
+		return
+		
 	get_tree().paused = !get_tree().paused
 	visible = get_tree().paused
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dusbn3q4aei5c" path="res://ui/main_menu_3d.gd" id="1_8f1fx"]
 [ext_resource type="Texture2D" uid="uid://by2kjpxtf5e4v" path="res://assets/menu/ahora.png" id="3_1ocrj"]
 [ext_resource type="Texture2D" uid="uid://coq1nfonran07" path="res://assets/menu/no_light.jpg" id="3_3kjjo"]
-[ext_resource type="AudioStream" uid="uid://wede7c8nrnmk" path="res://bgm/linterna.mp3" id="4_r1rbh"]
+[ext_resource type="AudioStream" uid="uid://btkhncbc4xuvh" path="res://bgm/linterna.mp3" id="4_r1rbh"]
 [ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="6_1ocrj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ocrj"]
@@ -40,11 +40,12 @@ mouse_filter = 2
 stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=492102805]
-layout_mode = 0
-offset_left = 290.0
-offset_top = 100.0
-offset_right = 555.0
-offset_bottom = 371.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=76196052]
