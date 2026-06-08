@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s1ul0xu3d153"
-path="res://.godot/imported/menu_centrada_50_negro.jpg-fdc7cb08ce7c989b544930d3710bd5e4.ctex"
+uid="uid://c3bsbhnhkk7e3"
+path="res://.godot/imported/jump_normal.png-618855a53de27b202f87e632547c1ebe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/menu_centrada_50_negro.jpg"
-dest_files=["res://.godot/imported/menu_centrada_50_negro.jpg-fdc7cb08ce7c989b544930d3710bd5e4.ctex"]
+source_file="res://assets/menu/jump_normal.png"
+dest_files=["res://.godot/imported/jump_normal.png-618855a53de27b202f87e632547c1ebe.ctex"]
 
 [params]
 

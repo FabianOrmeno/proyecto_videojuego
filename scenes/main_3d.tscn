@@ -6,9 +6,22 @@
 [ext_resource type="AudioStream" uid="uid://dbgowyx01xtuf" path="res://bgm/NO SALVATION.mp3" id="4_6g3y2"]
 [ext_resource type="PackedScene" uid="uid://cbpxgmqsgcp1n" path="res://ui/pause_menu_3d.tscn" id="5_le0cj"]
 [ext_resource type="PackedScene" uid="uid://dc5k7rk28u4ml" path="res://scenes/standing_light.tscn" id="6_78blk"]
+[ext_resource type="Script" uid="uid://bkvbo7dwo5a0x" path="res://scenes/game_over_screen.gd" id="6_j26j0"]
+[ext_resource type="Texture2D" uid="uid://c3bsbhnhkk7e3" path="res://assets/menu/jump_normal.png" id="7_hbx4b"]
 [ext_resource type="PackedScene" uid="uid://di6ei4ihl4a43" path="res://scenes/casa.tscn" id="8_1gkdw"]
+[ext_resource type="Texture2D" uid="uid://df0umidw5yttt" path="res://assets/menu/jump_byn.png" id="8_kxs86"]
 [ext_resource type="PackedScene" uid="uid://b1eqww1dwjwih" path="res://items/battery.tscn" id="9_6g3y2"]
+[ext_resource type="AudioStream" uid="uid://ct3lrd6vftg07" path="res://bgm/victoria.mp3" id="9_ml77k"]
+[ext_resource type="Texture2D" uid="uid://wncxw6lnsfnv" path="res://assets/menu/game_over.png" id="9_v55lt"]
 [ext_resource type="PackedScene" uid="uid://byixm4nvh08ck" path="res://items/light_item.tscn" id="10_j26j0"]
+[ext_resource type="Theme" uid="uid://b8k5h2hcmwirl" path="res://nuevo.tres" id="10_kxs86"]
+[ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="11_v55lt"]
+[ext_resource type="Script" uid="uid://c1sq1n4dqj0l1" path="res://scenes/victory_screen.gd" id="12_pkh84"]
+[ext_resource type="Texture2D" uid="uid://bs7b4i0222nfr" path="res://assets/menu/all_white.png" id="13_338xd"]
+[ext_resource type="Texture2D" uid="uid://cbs0e2ypqxe5w" path="res://assets/menu/win.jpg" id="14_jl2p6"]
+[ext_resource type="AudioStream" uid="uid://drbhkut6aein7" path="res://bgm/jumpscare.mp3" id="15_jl2p6"]
+[ext_resource type="AudioStream" uid="uid://btkhncbc4xuvh" path="res://bgm/linterna.mp3" id="16_ewgxa"]
+[ext_resource type="Script" uid="uid://cybn6dkxu81oq" path="res://scenes/goal_area.gd" id="19_338xd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
 sky_top_color = Color(0.05769398, 0.113009505, 0.20592856, 1)
@@ -24,6 +37,8 @@ sky = SubResource("Sky_m7dbh")
 ambient_light_source = 2
 ambient_light_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewgxa"]
+
 [node name="Node3D" type="Node3D" unique_id=2109372661]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=684154340]
@@ -37,15 +52,175 @@ environment = SubResource("Environment_67ruw")
 [node name="Player" parent="." unique_id=1559358042 instance=ExtResource("1_m7dbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3316644, 1.5209515, -2.1470153)
 game_music = ExtResource("3_1gkdw")
-chase_music = ExtResource("4_6g3y2")
+no_battery_music = ExtResource("4_6g3y2")
 
-[node name="Enemy" parent="." unique_id=972657164 node_paths=PackedStringArray("player") instance=ExtResource("2_3s264")]
+[node name="Enemy" parent="." unique_id=972657164 node_paths=PackedStringArray("player", "game_over_screen") instance=ExtResource("2_3s264")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.512588, 1, -15.421447)
 player = NodePath("../Player")
+game_over_screen = NodePath("../CanvasLayer/GameOverScreen")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1952879311]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=319950424 instance=ExtResource("5_le0cj")]
+
+[node name="VictoryScreen" type="Control" parent="CanvasLayer" unique_id=868739032]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_pkh84")
+all_white_texture = ExtResource("13_338xd")
+win_texture = ExtResource("14_jl2p6")
+menu_scene_path = "res://ui/main_menu_3d.tscn"
+victory_music = ExtResource("9_ml77k")
+
+[node name="VictoryPanel" type="Control" parent="CanvasLayer/VictoryScreen" unique_id=1120554153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/VictoryScreen/VictoryPanel" unique_id=1420034939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_jl2p6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VictoryScreen/VictoryPanel" unique_id=2029460738]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -54.5
+offset_right = 160.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_kxs86")
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/VictoryScreen/VictoryPanel/VBoxContainer" unique_id=1564810162]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7254902, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "You Escaped"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/VictoryScreen/VictoryPanel/VBoxContainer" unique_id=1163079069]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("11_v55lt")
+theme_override_styles/pressed = ExtResource("11_v55lt")
+theme_override_styles/hover = ExtResource("11_v55lt")
+theme_override_styles/disabled = ExtResource("11_v55lt")
+theme_override_styles/focus = ExtResource("11_v55lt")
+text = "Main Menu"
+
+[node name="WhiteScreen" type="TextureRect" parent="CanvasLayer/VictoryScreen/VictoryPanel" unique_id=1458514733]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_338xd")
+
+[node name="GameOverScreen" type="Control" parent="CanvasLayer" unique_id=1705636946]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_j26j0")
+jump_normal_texture = ExtResource("7_hbx4b")
+jump_byn_texture = ExtResource("8_kxs86")
+game_over_texture = ExtResource("9_v55lt")
+menu_scene_path = "res://ui/main_menu_3d.tscn"
+jumpscare_sfx = ExtResource("15_jl2p6")
+game_over_music = ExtResource("16_ewgxa")
+
+[node name="Screamer" type="TextureRect" parent="CanvasLayer/GameOverScreen" unique_id=1183364726]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="GameOverPanel" type="Control" parent="CanvasLayer/GameOverScreen" unique_id=403934342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/GameOverScreen/GameOverPanel" unique_id=1033808690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/GameOverPanel" unique_id=1502611765]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -70.5
+offset_right = 94.5
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_kxs86")
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/GameOverScreen/GameOverPanel/VBoxContainer" unique_id=1033448790]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7254902, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+
+[node name="BackToMenuButton" type="Button" parent="CanvasLayer/GameOverScreen/GameOverPanel/VBoxContainer" unique_id=504907073]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("11_v55lt")
+theme_override_styles/pressed = ExtResource("11_v55lt")
+theme_override_styles/hover = ExtResource("11_v55lt")
+theme_override_styles/disabled = ExtResource("11_v55lt")
+theme_override_styles/focus = ExtResource("11_v55lt")
+text = "Menu"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/GameOverScreen/GameOverPanel/VBoxContainer" unique_id=32754210]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("11_v55lt")
+theme_override_styles/pressed = ExtResource("11_v55lt")
+theme_override_styles/hover = ExtResource("11_v55lt")
+theme_override_styles/disabled = ExtResource("11_v55lt")
+theme_override_styles/focus = ExtResource("11_v55lt")
+text = "Exit"
+
+[node name="BlinkTimer" type="Timer" parent="CanvasLayer/GameOverScreen/GameOverPanel" unique_id=1436308325]
+
+[node name="ScreamerTimer" type="Timer" parent="CanvasLayer/GameOverScreen/GameOverPanel" unique_id=1477111762]
 
 [node name="StandingLight" parent="." unique_id=279483290 instance=ExtResource("6_78blk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.346005, 3.875521, 7.665864)
@@ -58,3 +233,10 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.7061932, 0.83970183,
 
 [node name="StaticBody3D2" parent="." unique_id=1727339715 instance=ExtResource("10_j26j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2901642, -0.051957905, -2.271904)
+
+[node name="GoalArea" type="Area3D" parent="." unique_id=604884518 node_paths=PackedStringArray("victory_screen")]
+script = ExtResource("19_338xd")
+victory_screen = NodePath("../CanvasLayer/VictoryScreen")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoalArea" unique_id=208639340]
+shape = SubResource("BoxShape3D_ewgxa")
