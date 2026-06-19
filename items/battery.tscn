@@ -5,13 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://bksc207561mkd" path="res://items/battery_body.tscn" id="2_6q2tk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6q2tk"]
-height = 0.8
-radius = 0.2
+height = 0.9380859
+radius = 0.3540039
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1553128371]
 script = ExtResource("1_8h0n8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1724485524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06904295, 0)
 shape = SubResource("CylinderShape3D_6q2tk")
 
 [node name="battery" parent="." unique_id=2096687389 instance=ExtResource("2_6q2tk")]
