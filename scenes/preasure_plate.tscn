@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgjltuhy8ouvo"]
+
+[ext_resource type="Script" uid="uid://dp84edacyqk5f" path="res://scenes/preasure_plate.gd" id="1_5245x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(1, 0.009338379, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 0.51416016, 1)
+
+[node name="Area3D" type="Area3D" unique_id=116447000]
+script = ExtResource("1_5245x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1751610045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011257172, 0)
+layers = 2
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1155890406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24291992, 0)
+shape = SubResource("BoxShape3D_g4v7s")

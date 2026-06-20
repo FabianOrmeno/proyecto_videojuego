@@ -22,6 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://drbhkut6aein7" path="res://bgm/jumpscare.mp3" id="15_jl2p6"]
 [ext_resource type="AudioStream" uid="uid://btkhncbc4xuvh" path="res://bgm/linterna.mp3" id="16_ewgxa"]
 [ext_resource type="Script" uid="uid://cybn6dkxu81oq" path="res://scenes/goal_area.gd" id="19_338xd"]
+[ext_resource type="PackedScene" uid="uid://bgjltuhy8ouvo" path="res://scenes/preasure_plate.tscn" id="23_c2q4g"]
+[ext_resource type="PackedScene" uid="uid://cl7o8cuq5pf0" path="res://scenes/door.tscn" id="24_u5jvq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
 sky_top_color = Color(0.05769398, 0.113009505, 0.20592856, 1)
@@ -241,3 +243,10 @@ victory_screen = NodePath("../CanvasLayer/VictoryScreen")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoalArea" unique_id=208639340]
 shape = SubResource("BoxShape3D_ewgxa")
+
+[node name="PreasurePlate" parent="." unique_id=116447000 node_paths=PackedStringArray("door") instance=ExtResource("23_c2q4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5187957, -0.088460445, -11.051894)
+door = NodePath("../Door")
+
+[node name="Door" parent="." unique_id=1450163194 instance=ExtResource("24_u5jvq")]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -0.74982256, 0.903859, -13.136376)

@@ -1,3 +1,4 @@
+class_name Enemy3D
 extends CharacterBody3D
 
 @export var speed = 1
