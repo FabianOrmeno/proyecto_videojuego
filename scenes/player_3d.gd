@@ -16,8 +16,8 @@ extends CharacterBody3D
 @onready var light_hit_component: LightHitComponent = $pivot/LightHitComponent
 @onready var spot_light_3d: SpotLight3D = $pivot/SpotLight3D
 @onready var progress_bar: ProgressBar = $CanvasLayer/Panel/ProgressBar
-@onready var batteries: Label = $CanvasLayer/Control/Batteries
-@onready var lights: Label = $CanvasLayer/Control/Lights
+@onready var batteries: Label = %Batteries
+@onready var lights: Label = %Lights
 
 var mouse_sensitivity = 0.005
 @export var tilt_limit = deg_to_rad(75)

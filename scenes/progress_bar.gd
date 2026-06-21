@@ -5,5 +5,6 @@ func _set(property, new_value):
 	if property == "value":
 		var style = get_theme_stylebox("fill") as StyleBoxFlat
 		style.bg_color = Color.RED*(1000.0-new_value)/1000 + Color.GREEN*(new_value/1000.0)
-		
+		value = new_value
+	return true
 	

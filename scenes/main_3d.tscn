@@ -14,14 +14,16 @@
 [ext_resource type="AudioStream" uid="uid://ct3lrd6vftg07" path="res://bgm/victoria.mp3" id="9_ml77k"]
 [ext_resource type="Texture2D" uid="uid://wncxw6lnsfnv" path="res://assets/menu/game_over.png" id="9_v55lt"]
 [ext_resource type="PackedScene" uid="uid://byixm4nvh08ck" path="res://items/light_item.tscn" id="10_j26j0"]
-[ext_resource type="Theme" uid="uid://b8k5h2hcmwirl" path="res://nuevo.tres" id="10_kxs86"]
-[ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="11_v55lt"]
+[ext_resource type="Theme" path="res://nuevo.tres" id="10_kxs86"]
+[ext_resource type="StyleBox" path="res://transparente.tres" id="11_v55lt"]
 [ext_resource type="Script" uid="uid://c1sq1n4dqj0l1" path="res://scenes/victory_screen.gd" id="12_pkh84"]
 [ext_resource type="Texture2D" uid="uid://bs7b4i0222nfr" path="res://assets/menu/all_white.png" id="13_338xd"]
 [ext_resource type="Texture2D" uid="uid://cbs0e2ypqxe5w" path="res://assets/menu/win.jpg" id="14_jl2p6"]
 [ext_resource type="AudioStream" uid="uid://drbhkut6aein7" path="res://bgm/jumpscare.mp3" id="15_jl2p6"]
 [ext_resource type="AudioStream" uid="uid://btkhncbc4xuvh" path="res://bgm/linterna.mp3" id="16_ewgxa"]
 [ext_resource type="Script" uid="uid://cybn6dkxu81oq" path="res://scenes/goal_area.gd" id="19_338xd"]
+[ext_resource type="PackedScene" uid="uid://bgjltuhy8ouvo" path="res://scenes/preasure_plate.tscn" id="23_c2q4g"]
+[ext_resource type="PackedScene" uid="uid://cl7o8cuq5pf0" path="res://scenes/door.tscn" id="24_u5jvq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67ruw"]
 sky_top_color = Color(0.05769398, 0.113009505, 0.20592856, 1)
@@ -55,7 +57,7 @@ game_music = ExtResource("3_1gkdw")
 no_battery_music = ExtResource("4_6g3y2")
 
 [node name="Enemy" parent="." unique_id=972657164 node_paths=PackedStringArray("player", "game_over_screen") instance=ExtResource("2_3s264")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.512588, 1, -15.421447)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7356701, 0.050424814, -10.410263)
 player = NodePath("../Player")
 game_over_screen = NodePath("../CanvasLayer/GameOverScreen")
 
@@ -144,9 +146,9 @@ script = ExtResource("6_j26j0")
 jump_normal_texture = ExtResource("7_hbx4b")
 jump_byn_texture = ExtResource("8_kxs86")
 game_over_texture = ExtResource("9_v55lt")
-menu_scene_path = "res://ui/main_menu_3d.tscn"
 jumpscare_sfx = ExtResource("15_jl2p6")
 game_over_music = ExtResource("16_ewgxa")
+menu_scene_path = "res://ui/main_menu_3d.tscn"
 
 [node name="Screamer" type="TextureRect" parent="CanvasLayer/GameOverScreen" unique_id=1183364726]
 visible = false
@@ -235,8 +237,16 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.7061932, 0.83970183,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2901642, -0.051957905, -2.271904)
 
 [node name="GoalArea" type="Area3D" parent="." unique_id=604884518 node_paths=PackedStringArray("victory_screen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.625996)
 script = ExtResource("19_338xd")
 victory_screen = NodePath("../CanvasLayer/VictoryScreen")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoalArea" unique_id=208639340]
 shape = SubResource("BoxShape3D_ewgxa")
+
+[node name="PreasurePlate" parent="." unique_id=116447000 node_paths=PackedStringArray("door") instance=ExtResource("23_c2q4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5187957, -0.088460445, -11.051894)
+door = NodePath("../Door")
+
+[node name="Door" parent="." unique_id=1450163194 instance=ExtResource("24_u5jvq")]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -0.74982256, 0.903859, -13.136376)

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Proyecto Individual"
 run/main_scene="uid://cvj2g5s6yv2na"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -27,7 +27,6 @@ AudioManager="*uid://btotu4p1wxadd"
 
 [display]
 
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
