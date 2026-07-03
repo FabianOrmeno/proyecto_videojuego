@@ -18,6 +18,12 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=972657164]
 script = ExtResource("1_2teg2")
+chase_distance = 6.0
+lose_chase_distance = 6.0
+roam_radius = 6.0
+roam_wait_time = 0.5
+update_target_time = 1.0
+stuck_time_limit = 1.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1014856514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8671875, 0)
@@ -38,3 +44,7 @@ metadata/_custom_type_script = "uid://c0hcc0nht3vbg"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LightHurtComponent" unique_id=1114250616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8671875, 0)
 shape = SubResource("CapsuleShape3D_j3yqb")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1621871613]
+path_desired_distance = 0.5
+target_desired_distance = 0.8
