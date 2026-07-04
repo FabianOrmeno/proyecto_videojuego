@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c1xth238wfjbm" path="res://assets/Abandoned_House/Models/Abandoned_House_Puerta.jpg" id="1_hpvv5"]
 [ext_resource type="Script" uid="uid://cbck04j5im35u" path="res://scenes/door.gd" id="1_uvdjg"]
+[ext_resource type="AudioStream" uid="uid://2vn5q4wdk018" path="res://bgm/dragon-studio-button-press-386165.mp3" id="2_la1wf"]
+[ext_resource type="AudioStream" uid="uid://dtyoidrl15lm" path="res://bgm/dragon-studio-button-press-2-386176.mp3" id="3_18pbm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbaop"]
 resource_name = "Puerta"
@@ -46,9 +48,11 @@ size = Vector3(0.9608154, 2.1298828, 0.045654297)
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1450163194]
 script = ExtResource("1_uvdjg")
+open_sfx = ExtResource("2_la1wf")
+close_sfx = ExtResource("3_18pbm")
 
 [node name="Puerta" type="MeshInstance3D" parent="." unique_id=1107813195]
-transform = Transform3D(-1.0937274, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-1.0937274, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0.1809473, 0)
 mesh = SubResource("ArrayMesh_uvdjg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=657074527]
