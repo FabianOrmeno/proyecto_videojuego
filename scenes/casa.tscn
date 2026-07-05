@@ -60,8 +60,12 @@ script = ExtResource("2_l7c5q")
 transform = Transform3D(-3.700183e-08, 0, -0.84650326, 0, 0.84650326, 0, 0.84650326, 0, -3.700183e-08, -43.017998, -0.32591164, -1.8527431)
 mesh = SubResource("ArrayMesh_pdqtk")
 
+[node name="Basura_034" parent="Trash" parent_id_path=PackedInt32Array(1211561193) index="32" unique_id=1711367269]
+transform = Transform3D(4.221596e-07, -0.96504605, 3.4073033, -3.5413313, -4.1967905e-07, 3.199003e-07, 3.166197e-07, -3.4073033, -0.96504605, -15.048464, -29.147074, 1.3127136)
+
 [node name="Casa" parent="." index="25" unique_id=1114158369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.76968, 3.0720966, -126.28114)
+layers = 3
 
 [node name="ramp" type="StaticBody3D" parent="Casa" index="69" unique_id=1938888826]
 metadata/_edit_group_ = true
