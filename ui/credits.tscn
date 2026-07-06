@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://1loo2658s2lc"]
 
-[ext_resource type="Texture2D" uid="uid://cusdj0c8el4ts" path="res://assets/oak_woods_v1.0/background/background_layer_1.png" id="1_0ctdu"]
-[ext_resource type="Script" uid="uid://bj3tmjiboi7o2" path="res://scenes/credits.gd" id="1_2fbfq"]
-[ext_resource type="Texture2D" uid="uid://b7c5f3ronl8gd" path="res://assets/oak_woods_v1.0/background/background_layer_2.png" id="2_2fbfq"]
-[ext_resource type="Texture2D" uid="uid://cr6bf7qgr5l2t" path="res://assets/oak_woods_v1.0/background/background_layer_3.png" id="3_8gwij"]
+[ext_resource type="Texture2D" path="res://assets/oak_woods_v1.0/background/background_layer_1.png" id="1_0ctdu"]
+[ext_resource type="Script" uid="uid://bj3tmjiboi7o2" path="res://ui/credits.gd" id="1_2fbfq"]
+[ext_resource type="Texture2D" path="res://assets/oak_woods_v1.0/background/background_layer_2.png" id="2_2fbfq"]
+[ext_resource type="Texture2D" path="res://assets/oak_woods_v1.0/background/background_layer_3.png" id="3_8gwij"]
 
 [node name="credits" type="Control" unique_id=649089605]
 layout_mode = 3
