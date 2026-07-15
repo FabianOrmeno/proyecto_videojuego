@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://7gst6e1jfoyl"]
+
+[ext_resource type="Script" uid="uid://44h2q8qp0opq" path="res://ui/credits_3d.gd" id="1_nat5q"]
+[ext_resource type="Texture2D" uid="uid://bp2uoiwcousbr" path="res://assets/menu/credits.png" id="2_o1lwv"]
+[ext_resource type="Theme" uid="uid://b8k5h2hcmwirl" path="res://nuevo.tres" id="3_o1lwv"]
+[ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="4_popce"]
+
+[node name="CreditsMenu" type="Control" unique_id=1852555219]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nat5q")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2108588532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_o1lwv")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CreditsArea" type="Control" parent="." unique_id=1251753598]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsText" type="VBoxContainer" parent="CreditsArea" unique_id=1401255571]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_o1lwv")
+
+[node name="Credits" type="Label" parent="CreditsArea/CreditsText" unique_id=43413404]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme = ExtResource("3_o1lwv")
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Text" type="Label" parent="CreditsArea/CreditsText" unique_id=183934878]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "developed by
+
+Fabianorar
+damssonn
+cadwalch
+
+
+
+Font
+
+horror by Rudairo Manase
+
+
+
+Models
+
+Fire Exit Sign by Thomas Oldham      Sketchfab
+Abandoned House by elbolilloduro      itch io
+Battery by WISEMAN      itch io
+Lantern lowpoly game ready by ARMA Labs      itch io
+
+ 
+
+Sound Effects
+
+Button Press by DRAGON STUDIO     pixabay
+Button Press two by DRAGON STUDIO     pixabay
+Fluorecent light hum by CreatorAssets     CreatorAssets
+Cry Of The Unheard by REPULSIVE
+NO SALVATION by Daniel Herrera 
+Jumpscare Sound by Ghastly Games
+Tearful Memories by Erlend Flatin
+
+
+
+
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=2092008465]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 173.0
+grow_vertical = 0
+theme = ExtResource("3_o1lwv")
+theme_override_colors/font_color = Color(0.21176471, 0.972549, 0.19215687, 1)
+theme_override_colors/font_focus_color = Color(0.21176471, 0.972549, 0.19215687, 1)
+theme_override_colors/font_pressed_color = Color(0.21176471, 0.972549, 0.19215687, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21176471, 0.972549, 0.19215687, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("4_popce")
+theme_override_styles/pressed = ExtResource("4_popce")
+theme_override_styles/hover = ExtResource("4_popce")
+theme_override_styles/disabled = ExtResource("4_popce")
+theme_override_styles/focus = ExtResource("4_popce")
+text = "main menu"

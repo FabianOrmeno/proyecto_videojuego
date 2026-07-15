@@ -44,6 +44,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -68,6 +70,21 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_yoodq")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_faf8m")
 text = "Play"
 
+[node name="Button (Credits)" type="Button" parent="VBoxContainer" unique_id=2115359672]
+layout_mode = 2
+theme = ExtResource("1_3kjjo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("6_1ocrj")
+theme_override_styles/pressed = ExtResource("6_1ocrj")
+theme_override_styles/hover = ExtResource("6_1ocrj")
+theme_override_styles/disabled = ExtResource("6_1ocrj")
+theme_override_styles/focus = ExtResource("6_1ocrj")
+text = "Credits"
+
 [node name="Button (Exit)" type="Button" parent="VBoxContainer" unique_id=1549956182]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -85,4 +102,5 @@ text = "Exit"
 [node name="FlickerTimer" type="Timer" parent="." unique_id=50591700]
 
 [connection signal="pressed" from="VBoxContainer/Button (Play)" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button (Credits)" to="." method="_on_button_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button (Exit)" to="." method="_on_button_exit_pressed"]
