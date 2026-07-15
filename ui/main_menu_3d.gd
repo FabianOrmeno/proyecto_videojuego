@@ -53,5 +53,7 @@ func _on_button_play_pressed() -> void:
 func _on_button_exit_pressed() -> void:
 	get_tree().quit()
 
+func _on_button_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file("res://ui/tutorial_3d.tscn")
 func _on_button_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://ui/credits_3d.tscn")
