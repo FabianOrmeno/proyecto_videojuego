@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj0tlh8fg8ni2" path="res://assets/tutorial/imagen_bateria.png" id="2_7fsod"]
 [ext_resource type="Texture2D" uid="uid://bk0nvwyvqn7rr" path="res://assets/tutorial/imagen_linterna.png" id="3_x8atg"]
 [ext_resource type="Texture2D" uid="uid://bk47c44yotcda" path="res://assets/tutorial/imagen_placa.png" id="4_8gd46"]
-[ext_resource type="Texture2D" uid="uid://dlh6vf0q3cefm" path="res://assets/menu/fondo.png" id="5_d01on"]
+[ext_resource type="Texture2D" uid="uid://7sjm0yevfy4t" path="res://assets/menu/patio_casa.png" id="5_7fsod"]
 [ext_resource type="FontFile" uid="uid://wu2t33gmdigf" path="res://fonts/XTypewriter-Regular.ttf" id="6_7fsod"]
 [ext_resource type="FontFile" uid="uid://cbepp6j0of8bu" path="res://fonts/HorrorFont-Regular.ttf" id="6_ltego"]
 [ext_resource type="StyleBox" uid="uid://obxh5plskvbs" path="res://transparente.tres" id="7_oy8ws"]
@@ -36,7 +36,7 @@ offset_left = -179.0
 offset_top = -178.0
 offset_right = 1357.0
 offset_bottom = 846.0
-texture = ExtResource("5_d01on")
+texture = ExtResource("5_7fsod")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2140910485]
 layout_mode = 0

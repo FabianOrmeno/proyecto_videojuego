@@ -72,9 +72,6 @@ text = "Play"
 
 [node name="Button (Tutorial)" type="Button" parent="VBoxContainer" unique_id=1313782840]
 layout_mode = 2
-[node name="Button (Credits)" type="Button" parent="VBoxContainer" unique_id=2115359672]
-layout_mode = 2
-theme = ExtResource("1_3kjjo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -86,6 +83,19 @@ theme_override_styles/hover = ExtResource("6_1ocrj")
 theme_override_styles/disabled = ExtResource("6_1ocrj")
 theme_override_styles/focus = ExtResource("6_1ocrj")
 text = "Tutorial"
+
+[node name="Button (Credits)" type="Button" parent="VBoxContainer" unique_id=2115359672]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.7254902, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.7254902, 0, 0, 1)
+theme_override_styles/normal = ExtResource("6_1ocrj")
+theme_override_styles/pressed = ExtResource("6_1ocrj")
+theme_override_styles/hover = ExtResource("6_1ocrj")
+theme_override_styles/disabled = ExtResource("6_1ocrj")
+theme_override_styles/focus = ExtResource("6_1ocrj")
 text = "Credits"
 
 [node name="Button (Exit)" type="Button" parent="VBoxContainer" unique_id=1549956182]
